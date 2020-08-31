@@ -10,25 +10,19 @@ import SwiftUI
 import Intents
 
 struct Provider: IntentTimelineProvider {
-    func placeholder(in context: Context) -> FiveyTimelineEntry {
-        FiveyTimelineEntry(date: Date(), poll: nil, configuration: ConfigurationIntent())
-    }
-
+    
     func getSnapshot(for configuration: ConfigurationIntent, in context: Context, completion: @escaping (FiveyTimelineEntry) -> ()) {
-        let dataTask = URLSession.shared.dataTask(with: URL(string: "https://projects.fivethirtyeight.com/2020-election-forecast/us_timeseries.json")!)
-        {
+        
+        let dataTask = URLSession.shared.dataTask(with: URL(string: "https://projects.fivethirtyeight.com/2020-election-forecast/us_timeseries.json")!) {
             (data, response, error) in
 
             guard let data = data else { return }
 
-            do
-            {
+            do {
                 let polls = try JSONDecoder().decode([Poll].self, from: data)
 
                 completion(FiveyTimelineEntry(date: Date(), poll: polls.first, configuration: configuration))
-            }
-            catch
-            {
+            } catch {
                 completion(FiveyTimelineEntry(date: Date(), poll: nil, configuration: configuration))
             }
         }
@@ -40,6 +34,10 @@ struct Provider: IntentTimelineProvider {
         getSnapshot(for: configuration, in: context) { entry in
             completion(Timeline(entries: [entry], policy: .atEnd))
         }
+    }
+
+    func placeholder(in context: Context) -> FiveyTimelineEntry {
+        FiveyTimelineEntry(date: Date(), poll: nil, configuration: ConfigurationIntent())
     }
 }
 
@@ -53,26 +51,19 @@ struct FiveyWidgetEntryView : View {
     
     var entry: FiveyTimelineEntry
 
-    var bidenPercent: String? {
-        let biden = entry.poll?.candidates.filter { $0.candidate == "Biden" }.first
-        let percent = biden?.dates.first?.winprob
-        return percent == nil ? nil : String(Int(percent! + 0.5))
-    }
-
-    var trumpPercent: String? {
-        let trump = entry.poll?.candidates.filter { $0.candidate == "Trump" }.first
-        let percent = trump?.dates.first?.winprob
-        return percent == nil ? nil : String(Int(percent! + 0.5))
+    func percentString(for name: String) -> String {
+        let percent = entry.poll?.candidate(named: name)?.dataPoints.first?.winProbability
+        return percent == nil ? "--" : String(Int(percent! + 0.5))
     }
 
     var body: some View {
         VStack {
-            Text(bidenPercent ?? "--")
+            Text(percentString(for: "Biden"))
                 .font(Font.system(size: 55, weight: .bold, design: .rounded))
                 .fontWeight(.bold)
                 .foregroundColor(Color.blue)
 
-            Text(trumpPercent ?? "--")
+            Text(percentString(for: "Trump"))
                 .font(Font.system(size: 55, weight: .bold, design: .rounded))
                 .fontWeight(.bold)
                 .foregroundColor(Color.red)
@@ -95,11 +86,17 @@ struct FiveyWidget: Widget {
 
 struct FiveyWidget_Previews: PreviewProvider {
     static var previews: some View {
-        
-        let biden = Candidate(candidate: "Biden", dates: [ DataPoint(date: "", winprob: 60) ])
-        let trump = Candidate(candidate: "Trump", dates: [ DataPoint(date: "", winprob: 40) ])
+        let data = try? Data(contentsOf: Bundle.main.url(forResource: "fixture", withExtension: "json")!)
+        let polls = try? JSONDecoder().decode([Poll].self, from: data!)
 
-        FiveyWidgetEntryView(entry: FiveyTimelineEntry(date: Date(), poll: Poll(type: "", state: "", candidates: [ trump, biden ]), configuration: ConfigurationIntent()))
+        FiveyWidgetEntryView(entry: FiveyTimelineEntry(date: Date(), poll: polls?.first, configuration: ConfigurationIntent()))
             .previewContext(WidgetPreviewContext(family: .systemSmall))
+
+        FiveyWidgetEntryView(entry: FiveyTimelineEntry(date: Date(), poll: polls?.first, configuration: ConfigurationIntent()))
+            .previewContext(WidgetPreviewContext(family: .systemMedium))
+
+        FiveyWidgetEntryView(entry: FiveyTimelineEntry(date: Date(), poll: polls?.first, configuration: ConfigurationIntent()))
+            .previewContext(WidgetPreviewContext(family: .systemLarge))
+
     }
 }

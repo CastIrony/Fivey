@@ -23,6 +23,9 @@
 		DD3FF77724FCAAF700C17A0A /* FiveyWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = DD3FF77224FCAAF200C17A0A /* FiveyWidget.intentdefinition */; };
 		DD3FF77A24FCAAF700C17A0A /* FiveyWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = DD3FF76924FCAAF200C17A0A /* FiveyWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		DD3FF77F24FCAB1100C17A0A /* FiveyModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3FF76224FCAA7000C17A0A /* FiveyModels.swift */; };
+		DD3FF78124FCDB0400C17A0A /* fixture.json in Resources */ = {isa = PBXBuildFile; fileRef = DD3FF78024FCDB0400C17A0A /* fixture.json */; };
+		DD3FF78224FCDB0400C17A0A /* fixture.json in Resources */ = {isa = PBXBuildFile; fileRef = DD3FF78024FCDB0400C17A0A /* fixture.json */; };
+		DD3FF78324FCDB0400C17A0A /* fixture.json in Resources */ = {isa = PBXBuildFile; fileRef = DD3FF78024FCDB0400C17A0A /* fixture.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +69,7 @@
 		DD3FF77224FCAAF200C17A0A /* FiveyWidget.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = FiveyWidget.intentdefinition; sourceTree = "<group>"; };
 		DD3FF77324FCAAF700C17A0A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DD3FF77524FCAAF700C17A0A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DD3FF78024FCDB0400C17A0A /* fixture.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = fixture.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +117,7 @@
 				DD3FF74124FCAA4F00C17A0A /* FiveyApp.swift */,
 				DD3FF74224FCAA4F00C17A0A /* ContentView.swift */,
 				DD3FF76224FCAA7000C17A0A /* FiveyModels.swift */,
+				DD3FF78024FCDB0400C17A0A /* fixture.json */,
 				DD3FF74324FCAA5500C17A0A /* Assets.xcassets */,
 			);
 			path = Shared;
@@ -267,6 +272,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD3FF75824FCAA5600C17A0A /* Assets.xcassets in Resources */,
+				DD3FF78124FCDB0400C17A0A /* fixture.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,6 +281,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD3FF75924FCAA5600C17A0A /* Assets.xcassets in Resources */,
+				DD3FF78224FCDB0400C17A0A /* fixture.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -283,6 +290,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD3FF77424FCAAF700C17A0A /* Assets.xcassets in Resources */,
+				DD3FF78324FCDB0400C17A0A /* fixture.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
