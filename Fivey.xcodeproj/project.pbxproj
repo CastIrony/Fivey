@@ -13,7 +13,41 @@
 		DD3FF75724FCAA5600C17A0A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3FF74224FCAA4F00C17A0A /* ContentView.swift */; };
 		DD3FF75824FCAA5600C17A0A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD3FF74324FCAA5500C17A0A /* Assets.xcassets */; };
 		DD3FF75924FCAA5600C17A0A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD3FF74324FCAA5500C17A0A /* Assets.xcassets */; };
+		DD3FF76324FCAA7000C17A0A /* FiveyModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3FF76224FCAA7000C17A0A /* FiveyModels.swift */; };
+		DD3FF76424FCAA7000C17A0A /* FiveyModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3FF76224FCAA7000C17A0A /* FiveyModels.swift */; };
+		DD3FF76C24FCAAF200C17A0A /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD3FF76B24FCAAF200C17A0A /* WidgetKit.framework */; };
+		DD3FF76E24FCAAF200C17A0A /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD3FF76D24FCAAF200C17A0A /* SwiftUI.framework */; };
+		DD3FF77124FCAAF200C17A0A /* FiveyWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3FF77024FCAAF200C17A0A /* FiveyWidget.swift */; };
+		DD3FF77424FCAAF700C17A0A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD3FF77324FCAAF700C17A0A /* Assets.xcassets */; };
+		DD3FF77624FCAAF700C17A0A /* FiveyWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = DD3FF77224FCAAF200C17A0A /* FiveyWidget.intentdefinition */; };
+		DD3FF77724FCAAF700C17A0A /* FiveyWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = DD3FF77224FCAAF200C17A0A /* FiveyWidget.intentdefinition */; };
+		DD3FF77A24FCAAF700C17A0A /* FiveyWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = DD3FF76924FCAAF200C17A0A /* FiveyWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		DD3FF77F24FCAB1100C17A0A /* FiveyModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3FF76224FCAA7000C17A0A /* FiveyModels.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		DD3FF77824FCAAF700C17A0A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DD3FF73C24FCAA4E00C17A0A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DD3FF76824FCAAF200C17A0A;
+			remoteInfo = FiveyWidgetExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		DD3FF77E24FCAAF700C17A0A /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				DD3FF77A24FCAAF700C17A0A /* FiveyWidgetExtension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		DD3FF74124FCAA4F00C17A0A /* FiveyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiveyApp.swift; sourceTree = "<group>"; };
@@ -24,6 +58,14 @@
 		DD3FF75024FCAA5500C17A0A /* Fivey.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fivey.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD3FF75224FCAA5500C17A0A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DD3FF75324FCAA5500C17A0A /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
+		DD3FF76224FCAA7000C17A0A /* FiveyModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiveyModels.swift; sourceTree = "<group>"; };
+		DD3FF76924FCAAF200C17A0A /* FiveyWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = FiveyWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD3FF76B24FCAAF200C17A0A /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		DD3FF76D24FCAAF200C17A0A /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		DD3FF77024FCAAF200C17A0A /* FiveyWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiveyWidget.swift; sourceTree = "<group>"; };
+		DD3FF77224FCAAF200C17A0A /* FiveyWidget.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = FiveyWidget.intentdefinition; sourceTree = "<group>"; };
+		DD3FF77324FCAAF700C17A0A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DD3FF77524FCAAF700C17A0A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +83,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		DD3FF76624FCAAF200C17A0A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DD3FF76E24FCAAF200C17A0A /* SwiftUI.framework in Frameworks */,
+				DD3FF76C24FCAAF200C17A0A /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -50,6 +101,8 @@
 				DD3FF74024FCAA4F00C17A0A /* Shared */,
 				DD3FF74A24FCAA5500C17A0A /* iOS */,
 				DD3FF75124FCAA5500C17A0A /* macOS */,
+				DD3FF76F24FCAAF200C17A0A /* FiveyWidget */,
+				DD3FF76A24FCAAF200C17A0A /* Frameworks */,
 				DD3FF74924FCAA5500C17A0A /* Products */,
 			);
 			sourceTree = "<group>";
@@ -59,6 +112,7 @@
 			children = (
 				DD3FF74124FCAA4F00C17A0A /* FiveyApp.swift */,
 				DD3FF74224FCAA4F00C17A0A /* ContentView.swift */,
+				DD3FF76224FCAA7000C17A0A /* FiveyModels.swift */,
 				DD3FF74324FCAA5500C17A0A /* Assets.xcassets */,
 			);
 			path = Shared;
@@ -69,6 +123,7 @@
 			children = (
 				DD3FF74824FCAA5500C17A0A /* Fivey.app */,
 				DD3FF75024FCAA5500C17A0A /* Fivey.app */,
+				DD3FF76924FCAAF200C17A0A /* FiveyWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -90,6 +145,26 @@
 			path = macOS;
 			sourceTree = "<group>";
 		};
+		DD3FF76A24FCAAF200C17A0A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DD3FF76B24FCAAF200C17A0A /* WidgetKit.framework */,
+				DD3FF76D24FCAAF200C17A0A /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DD3FF76F24FCAAF200C17A0A /* FiveyWidget */ = {
+			isa = PBXGroup;
+			children = (
+				DD3FF77024FCAAF200C17A0A /* FiveyWidget.swift */,
+				DD3FF77224FCAAF200C17A0A /* FiveyWidget.intentdefinition */,
+				DD3FF77324FCAAF700C17A0A /* Assets.xcassets */,
+				DD3FF77524FCAAF700C17A0A /* Info.plist */,
+			);
+			path = FiveyWidget;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -100,10 +175,12 @@
 				DD3FF74424FCAA5500C17A0A /* Sources */,
 				DD3FF74524FCAA5500C17A0A /* Frameworks */,
 				DD3FF74624FCAA5500C17A0A /* Resources */,
+				DD3FF77E24FCAAF700C17A0A /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				DD3FF77924FCAAF700C17A0A /* PBXTargetDependency */,
 			);
 			name = "Fivey (iOS)";
 			productName = "Fivey (iOS)";
@@ -127,6 +204,23 @@
 			productReference = DD3FF75024FCAA5500C17A0A /* Fivey.app */;
 			productType = "com.apple.product-type.application";
 		};
+		DD3FF76824FCAAF200C17A0A /* FiveyWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DD3FF77B24FCAAF700C17A0A /* Build configuration list for PBXNativeTarget "FiveyWidgetExtension" */;
+			buildPhases = (
+				DD3FF76524FCAAF200C17A0A /* Sources */,
+				DD3FF76624FCAAF200C17A0A /* Frameworks */,
+				DD3FF76724FCAAF200C17A0A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FiveyWidgetExtension;
+			productName = FiveyWidgetExtension;
+			productReference = DD3FF76924FCAAF200C17A0A /* FiveyWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -140,6 +234,9 @@
 						CreatedOnToolsVersion = 12.0;
 					};
 					DD3FF74F24FCAA5500C17A0A = {
+						CreatedOnToolsVersion = 12.0;
+					};
+					DD3FF76824FCAAF200C17A0A = {
 						CreatedOnToolsVersion = 12.0;
 					};
 				};
@@ -159,6 +256,7 @@
 			targets = (
 				DD3FF74724FCAA5500C17A0A /* Fivey (iOS) */,
 				DD3FF74F24FCAA5500C17A0A /* Fivey (macOS) */,
+				DD3FF76824FCAAF200C17A0A /* FiveyWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -180,6 +278,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		DD3FF76724FCAAF200C17A0A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DD3FF77424FCAAF700C17A0A /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -187,8 +293,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD3FF77724FCAAF700C17A0A /* FiveyWidget.intentdefinition in Sources */,
 				DD3FF75624FCAA5600C17A0A /* ContentView.swift in Sources */,
 				DD3FF75424FCAA5600C17A0A /* FiveyApp.swift in Sources */,
+				DD3FF76324FCAA7000C17A0A /* FiveyModels.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -198,10 +306,29 @@
 			files = (
 				DD3FF75724FCAA5600C17A0A /* ContentView.swift in Sources */,
 				DD3FF75524FCAA5600C17A0A /* FiveyApp.swift in Sources */,
+				DD3FF76424FCAA7000C17A0A /* FiveyModels.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DD3FF76524FCAAF200C17A0A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DD3FF77624FCAAF700C17A0A /* FiveyWidget.intentdefinition in Sources */,
+				DD3FF77124FCAAF200C17A0A /* FiveyWidget.swift in Sources */,
+				DD3FF77F24FCAB1100C17A0A /* FiveyModels.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DD3FF77924FCAAF700C17A0A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DD3FF76824FCAAF200C17A0A /* FiveyWidgetExtension */;
+			targetProxy = DD3FF77824FCAAF700C17A0A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		DD3FF75A24FCAA5600C17A0A /* Debug */ = {
@@ -318,6 +445,7 @@
 		DD3FF75D24FCAA5600C17A0A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -340,6 +468,7 @@
 		DD3FF75E24FCAA5600C17A0A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -408,6 +537,53 @@
 			};
 			name = Release;
 		};
+		DD3FF77C24FCAAF700C17A0A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = F7L4RR4JLD;
+				INFOPLIST_FILE = FiveyWidget/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = CastIrony.Fivey.FiveyWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		DD3FF77D24FCAAF700C17A0A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = F7L4RR4JLD;
+				INFOPLIST_FILE = FiveyWidget/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = CastIrony.Fivey.FiveyWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -434,6 +610,15 @@
 			buildConfigurations = (
 				DD3FF76024FCAA5600C17A0A /* Debug */,
 				DD3FF76124FCAA5600C17A0A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DD3FF77B24FCAAF700C17A0A /* Build configuration list for PBXNativeTarget "FiveyWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DD3FF77C24FCAAF700C17A0A /* Debug */,
+				DD3FF77D24FCAAF700C17A0A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
