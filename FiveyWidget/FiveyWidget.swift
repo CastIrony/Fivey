@@ -50,24 +50,67 @@ struct FiveyTimelineEntry: TimelineEntry {
 struct FiveyWidgetEntryView : View {
     
     var entry: FiveyTimelineEntry
-
+    
+    @Environment(\.widgetFamily) private var widgetFamily
+    
     func percentString(for name: String) -> String {
         let percent = entry.poll?.candidate(named: name)?.dataPoints.first?.winProbability
         return percent == nil ? "--" : String(Int(percent! + 0.5))
     }
 
-    var body: some View {
-        VStack {
-            Text(percentString(for: "Biden"))
-                .font(Font.system(size: 55, weight: .bold, design: .rounded))
-                .fontWeight(.bold)
-                .foregroundColor(Color.blue)
+    var updatedDateString: String
+    {
+        guard let date = entry.poll?.updated else { return "--" }
+        
+        let formatter = DateFormatter()
+        formatter.dateStyle = .none
+        formatter.timeStyle = .short
 
-            Text(percentString(for: "Trump"))
-                .font(Font.system(size: 55, weight: .bold, design: .rounded))
-                .fontWeight(.bold)
-                .foregroundColor(Color.red)
+        return formatter.string(from: date)
+    }
+    
+    var body: some View {
+        VStack(spacing: 20)
+        {
+            HStack(spacing: 20) {
+                VStack {
+                    VStack(spacing: 0) {
+                        Text("United States")
+                            .font(Font.system(size: 12, weight: .bold, design: .rounded))
+                            .foregroundColor(.secondary)
+
+                        Label(updatedDateString, systemImage: "clock")
+                            .font(Font.system(size: 12, weight: .regular, design: .rounded))
+                            .foregroundColor(.secondary)
+                    }
+                    
+                    Text(percentString(for: "Biden"))
+                        .font(Font.system(size: 45, weight: .bold, design: .rounded))
+                        .fontWeight(.bold)
+                        .foregroundColor(Color.blue)
+
+                    Text(percentString(for: "Trump"))
+                        .font(Font.system(size: 45, weight: .bold, design: .rounded))
+                        .fontWeight(.bold)
+                        .foregroundColor(Color.red)
+                }
+                
+                if widgetFamily != .systemSmall {
+                    Color(UIColor.secondarySystemBackground)
+                        .overlay(WinProbabilityGraph(poll: entry.poll).padding(.trailing, 8))
+                        .clipShape(ContainerRelativeShape())
+                }
+            }
+
+            if widgetFamily == .systemLarge
+            {
+                Color(UIColor.secondarySystemBackground)
+                    .overlay(PopularVoteGraph(poll: entry.poll).padding(.trailing, 8))
+                    .clipShape(ContainerRelativeShape())
+                    .layoutPriority(1)
+            }
         }
+        .padding()
     }
 }
 
@@ -88,7 +131,7 @@ struct FiveyWidget_Previews: PreviewProvider {
     static var previews: some View {
         let data = try? Data(contentsOf: Bundle.main.url(forResource: "fixture", withExtension: "json")!)
         let polls = try? JSONDecoder().decode([Poll].self, from: data!)
-
+        
         FiveyWidgetEntryView(entry: FiveyTimelineEntry(date: Date(), poll: polls?.first, configuration: ConfigurationIntent()))
             .previewContext(WidgetPreviewContext(family: .systemSmall))
 

@@ -26,6 +26,9 @@
 		DD3FF78124FCDB0400C17A0A /* fixture.json in Resources */ = {isa = PBXBuildFile; fileRef = DD3FF78024FCDB0400C17A0A /* fixture.json */; };
 		DD3FF78224FCDB0400C17A0A /* fixture.json in Resources */ = {isa = PBXBuildFile; fileRef = DD3FF78024FCDB0400C17A0A /* fixture.json */; };
 		DD3FF78324FCDB0400C17A0A /* fixture.json in Resources */ = {isa = PBXBuildFile; fileRef = DD3FF78024FCDB0400C17A0A /* fixture.json */; };
+		DD8AF58D24FDB0CE00B561FA /* GraphViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8AF58C24FDB0CE00B561FA /* GraphViews.swift */; };
+		DD8AF58E24FDB3EC00B561FA /* GraphViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8AF58C24FDB0CE00B561FA /* GraphViews.swift */; };
+		DD8AF58F24FDB3EC00B561FA /* GraphViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8AF58C24FDB0CE00B561FA /* GraphViews.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +73,7 @@
 		DD3FF77324FCAAF700C17A0A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DD3FF77524FCAAF700C17A0A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DD3FF78024FCDB0400C17A0A /* fixture.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = fixture.json; sourceTree = "<group>"; };
+		DD8AF58C24FDB0CE00B561FA /* GraphViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphViews.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +123,7 @@
 				DD3FF76224FCAA7000C17A0A /* FiveyModels.swift */,
 				DD3FF78024FCDB0400C17A0A /* fixture.json */,
 				DD3FF74324FCAA5500C17A0A /* Assets.xcassets */,
+				DD8AF58C24FDB0CE00B561FA /* GraphViews.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -304,6 +309,7 @@
 				DD3FF77724FCAAF700C17A0A /* FiveyWidget.intentdefinition in Sources */,
 				DD3FF75624FCAA5600C17A0A /* ContentView.swift in Sources */,
 				DD3FF75424FCAA5600C17A0A /* FiveyApp.swift in Sources */,
+				DD8AF58D24FDB0CE00B561FA /* GraphViews.swift in Sources */,
 				DD3FF76324FCAA7000C17A0A /* FiveyModels.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -315,6 +321,7 @@
 				DD3FF75724FCAA5600C17A0A /* ContentView.swift in Sources */,
 				DD3FF75524FCAA5600C17A0A /* FiveyApp.swift in Sources */,
 				DD3FF76424FCAA7000C17A0A /* FiveyModels.swift in Sources */,
+				DD8AF58E24FDB3EC00B561FA /* GraphViews.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -325,6 +332,7 @@
 				DD3FF77624FCAAF700C17A0A /* FiveyWidget.intentdefinition in Sources */,
 				DD3FF77124FCAAF200C17A0A /* FiveyWidget.swift in Sources */,
 				DD3FF77F24FCAB1100C17A0A /* FiveyModels.swift in Sources */,
+				DD8AF58F24FDB3EC00B561FA /* GraphViews.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
