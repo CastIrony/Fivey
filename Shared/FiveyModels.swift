@@ -40,20 +40,20 @@ struct Candidate: Codable {
         dataPoints.map { $0.winProbability }.reversed()
     }
 
-    var electoralVotes: [StatRange] {
-        dataPoints.compactMap { $0.electoralVote }.reversed()
-    }
-
-    var popularVotes: [StatRange] {
-        dataPoints.map { $0.popularVote }.reversed()
-    }
+//    var electoralVotes: [StatRange] {
+//        dataPoints.compactMap { $0.electoralVote }.reversed()
+//    }
+//
+//    var popularVotes: [StatRange] {
+//        dataPoints.map { $0.popularVote }.reversed()
+//    }
 }
 
 struct DataPoint: Codable {
     let dateString: String
     let winProbability: Double
-    let electoralVote: StatRange?
-    let popularVote: StatRange
+//    let electoralVote: StatRange?
+//    let popularVote: StatRange
 
     var date: Date? {
         let dateFormatter = DateFormatter()
@@ -64,19 +64,19 @@ struct DataPoint: Codable {
     enum CodingKeys : String, CodingKey {
         case dateString = "date"
         case winProbability = "winprob"
-        case electoralVote = "evs"
-        case popularVote = "voteshare"
+//        case electoralVote = "evs"
+//        case popularVote = "voteshare"
     }
 }
 
-struct StatRange: Codable {
-    let mean: Double
-    let high: Double
-    let low: Double
-
-    enum CodingKeys : String, CodingKey {
-        case mean
-        case high = "hi"
-        case low = "lo"
-    }
-}
+//struct StatRange: Codable {
+//    let mean: Double
+//    let high: Double
+//    let low: Double
+//
+//    enum CodingKeys : String, CodingKey {
+//        case mean
+//        case high = "hi"
+//        case low = "lo"
+//    }
+//}

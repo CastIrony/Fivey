@@ -101,14 +101,6 @@ struct FiveyWidgetEntryView : View {
                         .clipShape(ContainerRelativeShape())
                 }
             }
-
-            if widgetFamily == .systemLarge
-            {
-                Color(UIColor.secondarySystemBackground)
-                    .overlay(PopularVoteGraph(poll: entry.poll).padding(.trailing, 8))
-                    .clipShape(ContainerRelativeShape())
-                    .layoutPriority(1)
-            }
         }
         .padding()
     }
@@ -122,8 +114,9 @@ struct FiveyWidget: Widget {
         IntentConfiguration(kind: kind, intent: ConfigurationIntent.self, provider: Provider()) { entry in
             FiveyWidgetEntryView(entry: entry)
         }
-        .configurationDisplayName("My Widget")
-        .description("This is an example widget.")
+        .configurationDisplayName("Fivey")
+        .description("iOS 14 widget to show FiveThirtyEight's 2020 election model results.")
+        .supportedFamilies([.systemSmall, .systemMedium])
     }
 }
 
@@ -137,9 +130,5 @@ struct FiveyWidget_Previews: PreviewProvider {
 
         FiveyWidgetEntryView(entry: FiveyTimelineEntry(date: Date(), poll: polls?.first, configuration: ConfigurationIntent()))
             .previewContext(WidgetPreviewContext(family: .systemMedium))
-
-        FiveyWidgetEntryView(entry: FiveyTimelineEntry(date: Date(), poll: polls?.first, configuration: ConfigurationIntent()))
-            .previewContext(WidgetPreviewContext(family: .systemLarge))
-
     }
 }

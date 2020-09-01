@@ -41,86 +41,86 @@ struct GraphMajorGridLines: Shape
     }
 }
 
-struct StatRangeGraphShape: Shape
-{
-    let candidate: Candidate?
-    let keyPath: KeyPath<Candidate, [StatRange]>
-
-    let min: Double
-    let max: Double
-    
-    func percent(_ value: Double) -> CGFloat
-    {
-        CGFloat((value - min) / (max - min))
-    }
-    
-    func path(in rect: CGRect) -> Path {
-        
-        var path = Path()
-        
-        if let candidate = candidate {
-            
-            let dataSet = candidate[keyPath: keyPath]
-            
-            for (index, statRange) in dataSet.enumerated() {
-                
-                let x = rect.minX + CGFloat(index) / CGFloat(dataSet.count - 1) * rect.width
-                let y = rect.minY + CGFloat(1 - percent(statRange.high)) * rect.height
-                
-                if index == 0 {
-                    path.move(to: CGPoint(x: x, y: y))
-                } else {
-                    path.addLine(to: CGPoint(x: x, y: y))
-                }
-            }
-
-            for (index, statRange) in dataSet.enumerated().reversed() {
-                
-                let x = rect.minX + CGFloat(index) / CGFloat(dataSet.count - 1) * rect.width
-                let y = rect.minY + CGFloat(1 - percent(statRange.low)) * rect.height
-                
-                path.addLine(to: CGPoint(x: x, y: y))
-            }
-        }
-        
-        return path
-    }
-}
-
-struct StatRangeGraphLine: Shape
-{
-    let candidate: Candidate?
-    let keyPath: KeyPath<Candidate, [StatRange]>
-
-    let min: Double
-    let max: Double
-
-    func percent(_ value: Double) -> CGFloat
-    {
-        CGFloat((value - min) / (max - min))
-    }
-    
-    func path(in rect: CGRect) -> Path {
-        var path = Path()
-        
-        if let candidate = candidate {
-            
-            let dataSet = candidate[keyPath: keyPath]
-            for (index, statRange) in dataSet.enumerated() {
-                let x = rect.minX + CGFloat(index) / CGFloat(dataSet.count - 1) * rect.width
-                let y = rect.minY + CGFloat(1 - percent(statRange.mean)) * rect.height
-                
-                if index == 0 {
-                    path.move(to: CGPoint(x: x, y: y))
-                } else {
-                    path.addLine(to: CGPoint(x: x, y: y))
-                }
-            }
-        }
-                
-        return path
-    }
-}
+//struct StatRangeGraphShape: Shape
+//{
+//    let candidate: Candidate?
+//    let keyPath: KeyPath<Candidate, [StatRange]>
+//
+//    let min: Double
+//    let max: Double
+//
+//    func percent(_ value: Double) -> CGFloat
+//    {
+//        CGFloat((value - min) / (max - min))
+//    }
+//
+//    func path(in rect: CGRect) -> Path {
+//
+//        var path = Path()
+//
+//        if let candidate = candidate {
+//
+//            let dataSet = candidate[keyPath: keyPath]
+//
+//            for (index, statRange) in dataSet.enumerated() {
+//
+//                let x = rect.minX + CGFloat(index) / CGFloat(dataSet.count - 1) * rect.width
+//                let y = rect.minY + CGFloat(1 - percent(statRange.high)) * rect.height
+//
+//                if index == 0 {
+//                    path.move(to: CGPoint(x: x, y: y))
+//                } else {
+//                    path.addLine(to: CGPoint(x: x, y: y))
+//                }
+//            }
+//
+//            for (index, statRange) in dataSet.enumerated().reversed() {
+//
+//                let x = rect.minX + CGFloat(index) / CGFloat(dataSet.count - 1) * rect.width
+//                let y = rect.minY + CGFloat(1 - percent(statRange.low)) * rect.height
+//
+//                path.addLine(to: CGPoint(x: x, y: y))
+//            }
+//        }
+//
+//        return path
+//    }
+//}
+//
+//struct StatRangeGraphLine: Shape
+//{
+//    let candidate: Candidate?
+//    let keyPath: KeyPath<Candidate, [StatRange]>
+//
+//    let min: Double
+//    let max: Double
+//
+//    func percent(_ value: Double) -> CGFloat
+//    {
+//        CGFloat((value - min) / (max - min))
+//    }
+//
+//    func path(in rect: CGRect) -> Path {
+//        var path = Path()
+//
+//        if let candidate = candidate {
+//
+//            let dataSet = candidate[keyPath: keyPath]
+//            for (index, statRange) in dataSet.enumerated() {
+//                let x = rect.minX + CGFloat(index) / CGFloat(dataSet.count - 1) * rect.width
+//                let y = rect.minY + CGFloat(1 - percent(statRange.mean)) * rect.height
+//
+//                if index == 0 {
+//                    path.move(to: CGPoint(x: x, y: y))
+//                } else {
+//                    path.addLine(to: CGPoint(x: x, y: y))
+//                }
+//            }
+//        }
+//
+//        return path
+//    }
+//}
 
 
 struct WinProbabilityGraphLine: Shape
@@ -177,22 +177,22 @@ struct WinProbabilityGraph: View
     }
 }
 
-struct PopularVoteGraph: View
-{
-    let poll: Poll?
-
-    var body: some View {
-        ZStack {
-            GraphMajorGridLines(poll: poll).stroke(Color(UIColor.systemBackground), lineWidth: 1)
-            
-            StatRangeGraphLine(candidate: poll?.candidate(named: "Biden"), keyPath: \.popularVotes, min: 40, max: 60).stroke(Color.blue, lineWidth: 2).blendMode(.multiply)
-            StatRangeGraphLine(candidate: poll?.candidate(named: "Trump"), keyPath: \.popularVotes, min: 40, max: 60).stroke(Color.red, lineWidth: 2).blendMode(.multiply)
-
-            StatRangeGraphShape(candidate: poll?.candidate(named: "Biden"), keyPath: \.popularVotes, min: 40, max: 60).fill(Color.blue.opacity(0.3)).blendMode(.multiply)
-            StatRangeGraphShape(candidate: poll?.candidate(named: "Trump"), keyPath: \.popularVotes, min: 40, max: 60).fill(Color.red.opacity(0.3)).blendMode(.multiply)
-        }
-    }
-}
+//struct PopularVoteGraph: View
+//{
+//    let poll: Poll?
+//
+//    var body: some View {
+//        ZStack {
+//            GraphMajorGridLines(poll: poll).stroke(Color(UIColor.systemBackground), lineWidth: 1)
+//
+//            StatRangeGraphLine(candidate: poll?.candidate(named: "Biden"), keyPath: \.popularVotes, min: 40, max: 60).stroke(Color.blue, lineWidth: 2).blendMode(.multiply)
+//            StatRangeGraphLine(candidate: poll?.candidate(named: "Trump"), keyPath: \.popularVotes, min: 40, max: 60).stroke(Color.red, lineWidth: 2).blendMode(.multiply)
+//
+//            StatRangeGraphShape(candidate: poll?.candidate(named: "Biden"), keyPath: \.popularVotes, min: 40, max: 60).fill(Color.blue.opacity(0.3)).blendMode(.multiply)
+//            StatRangeGraphShape(candidate: poll?.candidate(named: "Trump"), keyPath: \.popularVotes, min: 40, max: 60).fill(Color.red.opacity(0.3)).blendMode(.multiply)
+//        }
+//    }
+//}
 
 
 struct GraphViews: View {
@@ -212,8 +212,8 @@ struct GraphViews_Previews: PreviewProvider {
             WinProbabilityGraph(poll: polls?.first).padding(.trailing ,8).background(Color(UIColor.secondarySystemBackground))
                 .previewLayout(.fixed(width: 600, height: 400))
             
-            PopularVoteGraph(poll: polls?.first).padding(.trailing ,8).background(Color(UIColor.secondarySystemBackground))
-                .previewLayout(.fixed(width: 600, height: 550))
+//            PopularVoteGraph(poll: polls?.first).padding(.trailing ,8).background(Color(UIColor.secondarySystemBackground))
+//                .previewLayout(.fixed(width: 600, height: 550))
         }
     }
 }
