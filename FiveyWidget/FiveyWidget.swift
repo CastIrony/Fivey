@@ -13,7 +13,7 @@ struct Provider: IntentTimelineProvider {
     
     func getSnapshot(for configuration: ConfigurationIntent, in context: Context, completion: @escaping (FiveyTimelineEntry) -> ()) {
         
-        let dataTask = URLSession.shared.dataTask(with: URL(string: "https://projects.fivethirtyeight.com/2020-election-forecast/us_timeseries.json")!) {
+        let dataTask = URLSession.shared.dataTask(with: URL(string: Region.urlString[configuration.region.rawValue])!) {
             (data, response, error) in
 
             guard let data = data else { return }
@@ -75,7 +75,7 @@ struct FiveyWidgetEntryView : View {
             HStack(spacing: 20) {
                 VStack {
                     VStack(spacing: 0) {
-                        Text("United States")
+                        Text(Region.displayName[entry.configuration.region.rawValue])
                             .font(Font.system(size: 12, weight: .bold, design: .rounded))
                             .foregroundColor(.secondary)
 
