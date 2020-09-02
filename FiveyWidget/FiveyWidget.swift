@@ -13,7 +13,7 @@ struct Provider: IntentTimelineProvider {
     
     func getSnapshot(for configuration: ConfigurationIntent, in context: Context, completion: @escaping (FiveyTimelineEntry) -> ()) {
         
-        let dataTask = URLSession.shared.dataTask(with: URL(string: Region.urlString[configuration.region.rawValue])!) {
+        let dataTask = URLSession.shared.dataTask(with: URL(string: Region.jsonURLString[configuration.region.rawValue])!) {
             (data, response, error) in
 
             guard let data = data else { return }
@@ -103,6 +103,7 @@ struct FiveyWidgetEntryView : View {
             }
         }
         .padding()
+        .widgetURL(URL(string: Region.linkURLString[entry.configuration.region.rawValue])!)
     }
 }
 

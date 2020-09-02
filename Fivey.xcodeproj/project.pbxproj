@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -29,6 +29,7 @@
 		DD617C5724FF602100A9C4AB /* Region.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD617C5624FF602100A9C4AB /* Region.swift */; };
 		DD617C5824FF602600A9C4AB /* Region.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD617C5624FF602100A9C4AB /* Region.swift */; };
 		DD617C5924FF602700A9C4AB /* Region.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD617C5624FF602100A9C4AB /* Region.swift */; };
+		DD617C5C24FF6A5000A9C4AB /* WebView in Frameworks */ = {isa = PBXBuildFile; productRef = DD617C5B24FF6A5000A9C4AB /* WebView */; };
 		DD8AF58D24FDB0CE00B561FA /* GraphViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8AF58C24FDB0CE00B561FA /* GraphViews.swift */; };
 		DD8AF58E24FDB3EC00B561FA /* GraphViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8AF58C24FDB0CE00B561FA /* GraphViews.swift */; };
 		DD8AF58F24FDB3EC00B561FA /* GraphViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8AF58C24FDB0CE00B561FA /* GraphViews.swift */; };
@@ -85,6 +86,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD617C5C24FF6A5000A9C4AB /* WebView in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -198,6 +200,9 @@
 				DD3FF77924FCAAF700C17A0A /* PBXTargetDependency */,
 			);
 			name = "Fivey (iOS)";
+			packageProductDependencies = (
+				DD617C5B24FF6A5000A9C4AB /* WebView */,
+			);
 			productName = "Fivey (iOS)";
 			productReference = DD3FF74824FCAA5500C17A0A /* Fivey.app */;
 			productType = "com.apple.product-type.application";
@@ -265,6 +270,9 @@
 				Base,
 			);
 			mainGroup = DD3FF73B24FCAA4E00C17A0A;
+			packageReferences = (
+				DD617C5A24FF6A5000A9C4AB /* XCRemoteSwiftPackageReference "SwiftUI-WebView" */,
+			);
 			productRefGroup = DD3FF74924FCAA5500C17A0A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -648,6 +656,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		DD617C5A24FF6A5000A9C4AB /* XCRemoteSwiftPackageReference "SwiftUI-WebView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kylehickinson/SwiftUI-WebView";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.2.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		DD617C5B24FF6A5000A9C4AB /* WebView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DD617C5A24FF6A5000A9C4AB /* XCRemoteSwiftPackageReference "SwiftUI-WebView" */;
+			productName = WebView;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = DD3FF73C24FCAA4E00C17A0A /* Project object */;
 }

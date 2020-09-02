@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "WebView",
+        "repositoryURL": "https://github.com/kylehickinson/SwiftUI-WebView",
+        "state": {
+          "branch": null,
+          "revision": "ec4352095428a06423868b3b2a92fdaa3c6281f7",
+          "version": "0.2.0"
+        }
+      }
+    ]
+  },
+  "version": 1
+}

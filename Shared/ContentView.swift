@@ -6,78 +6,33 @@
 //
 
 import SwiftUI
+import WebView
 
 struct ContentView: View {
-    @State var poll: Poll?
-
-    func percentString(for name: String) -> String {
-        let percent = poll?.candidate(named: name)?.dataPoints.first?.winProbability
-        return percent == nil ? "--" : String(Int(percent! + 0.5))
-    }
-
-    var updatedDateString: String {
-        guard let date = poll?.updated else { return "--" }
-        
-        let formatter = DateFormatter()
-        formatter.dateStyle = .none
-        formatter.timeStyle = .short
-        
-        return formatter.string(from: date)
-    }
+    @ObservedObject var webViewStore = WebViewStore()
 
     var body: some View {
-        VStack(spacing: 20)
-        {
-            HStack(spacing: 20) {
-                VStack {
-                    VStack(spacing: 0) {
-                        Text("United States")
-                            .font(Font.system(size: 12, weight: .bold, design: .rounded))
-                            .foregroundColor(.secondary)
-
-                        Text(updatedDateString)
-                            .font(Font.system(size: 12, weight: .regular, design: .rounded))
-                            .foregroundColor(.secondary)
-                    }
-                    
-                    Text(percentString(for: "Biden"))
-                        .font(Font.system(size: 45, weight: .bold, design: .rounded))
-                        .fontWeight(.bold)
-                        .foregroundColor(Color.blue)
-
-                    Text(percentString(for: "Trump"))
-                        .font(Font.system(size: 45, weight: .bold, design: .rounded))
-                        .fontWeight(.bold)
-                        .foregroundColor(Color.red)
-                }
-
-                Rectangle()
-                    .fill(Color(UIColor.secondarySystemBackground))
-                    .clipShape(ContainerRelativeShape())
+        NavigationView {
+            WebView(webView: webViewStore.webView)
+                .navigationBarTitle(Text(verbatim: webViewStore.webView.title ?? ""), displayMode: .inline)
+        }.onAppear {
+            self.webViewStore.webView.load(URLRequest(url: URL(string: "https://projects.fivethirtyeight.com/2020-election-forecast/")!))
+        }.onOpenURL { url in
+            self.webViewStore.webView.load(URLRequest(url: url))
+        }.toolbar {
+            ToolbarItemGroup(placement: .bottomBar) {
+                Button(action: goBack)    { Image(systemName: "chevron.left")  }.disabled(!webViewStore.webView.canGoBack)
+                Button(action: goForward) { Image(systemName: "chevron.right") }.disabled(!webViewStore.webView.canGoForward)
             }
-
-            Rectangle()
-                .fill(Color(UIColor.secondarySystemBackground))
-                .clipShape(ContainerRelativeShape())
-
-            Text("Updated \(updatedDateString)")
-                .font(Font.system(size: 12, weight: .regular, design: .rounded))
-                .foregroundColor(.secondary)
-                .padding(-10)
-
         }
-            .padding()
-            .onAppear {
-                let dataTask = URLSession.shared.dataTask(with: URL(string: "https://projects.fivethirtyeight.com/2020-election-forecast/us_timeseries.json")!) {
-                    (data, response, error) in
-
-                    guard let data = data else { return }
-
-                    poll = try? JSONDecoder().decode([Poll].self, from: data).first
-                }
-
-                dataTask.resume()
-            }
+    }
+  
+    func goBack() {
+        webViewStore.webView.goBack()
+    }
+  
+    func goForward() {
+        webViewStore.webView.goForward()
     }
 }
 
