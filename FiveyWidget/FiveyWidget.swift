@@ -70,39 +70,39 @@ struct FiveyWidgetEntryView : View {
     }
     
     var body: some View {
-        VStack(spacing: 20)
-        {
-            HStack(spacing: 20) {
-                VStack {
-                    VStack(spacing: 0) {
-                        Text(Region.displayName[entry.configuration.region.rawValue])
-                            .font(Font.system(size: 12, weight: .bold, design: .rounded))
-                            .foregroundColor(.secondary)
+        HStack(spacing: 20) {
+            VStack {
+                VStack(spacing: 0) {
+                    Text(Region.displayName[entry.configuration.region.rawValue])
+                        .font(Font.system(size: 12, weight: .bold, design: .rounded))
+                        .foregroundColor(.secondary)
 
-                        Label(updatedDateString, systemImage: "clock")
-                            .font(Font.system(size: 12, weight: .regular, design: .rounded))
-                            .foregroundColor(.secondary)
-                    }
-                    
-                    Text(percentString(for: "Biden"))
-                        .font(Font.system(size: 45, weight: .bold, design: .rounded))
-                        .fontWeight(.bold)
-                        .foregroundColor(Color.blue)
-
-                    Text(percentString(for: "Trump"))
-                        .font(Font.system(size: 45, weight: .bold, design: .rounded))
-                        .fontWeight(.bold)
-                        .foregroundColor(Color.red)
+                    Label(updatedDateString, systemImage: "clock")
+                        .imageScale(.small)
+                        .font(Font.system(size: 12, weight: .regular, design: .rounded))
+                        .foregroundColor(.secondary)
                 }
                 
-                if widgetFamily != .systemSmall {
-                    Color(UIColor.secondarySystemBackground)
-                        .overlay(WinProbabilityGraph(poll: entry.poll).padding(.trailing, 8))
-                        .clipShape(ContainerRelativeShape())
-                }
+                Text(percentString(for: "Biden"))
+                    .font(Font.system(size: 45, weight: .bold, design: .rounded))
+                    .fontWeight(.bold)
+                    .foregroundColor(Color.blue)
+
+                Text(percentString(for: "Trump"))
+                    .font(Font.system(size: 45, weight: .bold, design: .rounded))
+                    .fontWeight(.bold)
+                    .foregroundColor(Color.red)
+            }
+            
+            if widgetFamily != .systemSmall {
+                Color(UIColor.systemGroupedBackground)
+                    .overlay(WinProbabilityGraph(poll: entry.poll).padding(.trailing, 8))
+                    .clipShape(ContainerRelativeShape())
             }
         }
         .padding()
+        .frame(maxWidth: .infinity, maxHeight:.infinity)
+        .background(Color(UIColor.secondarySystemGroupedBackground))
         .widgetURL(URL(string: Region.linkURLString[entry.configuration.region.rawValue])!)
     }
 }

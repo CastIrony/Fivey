@@ -166,7 +166,7 @@ struct WinProbabilityGraph: View
 
     var body: some View {
         ZStack {
-            GraphMajorGridLines(poll: poll).stroke(Color(UIColor.systemBackground), lineWidth: 1)
+            GraphMajorGridLines(poll: poll).stroke(Color(UIColor.secondarySystemGroupedBackground), lineWidth: 1)
             
             WinProbabilityGraphLine(candidate: poll?.candidate(named: "Biden")).stroke(Color.blue, lineWidth: 2)
             WinProbabilityGraphLine(candidate: poll?.candidate(named: "Trump")).stroke(Color.red, lineWidth: 2)
